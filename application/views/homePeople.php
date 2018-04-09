@@ -50,7 +50,7 @@
                 </li> -->
 
                 <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url(); ?>main/registrationPeople">Registration</a>
+                        <a class="nav-link" href="<?php echo base_url(); ?>Main/registrationPeople">Registration</a>
                </li>  
 
                 <li class="nav-item">

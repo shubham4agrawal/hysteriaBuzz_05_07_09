@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class main extends CI_Controller {
+class Main extends CI_Controller {
 
 	function __construct(){
         parent::__construct();
@@ -30,7 +30,7 @@ class main extends CI_Controller {
     public function funevents(){
         $this->load->view('funevents');
     }
-    public function registrationPeople(){
+    public function registrationPeople(){ 
         $this->load->view('registrationPeople');
     }
     public function photos(){
@@ -48,7 +48,25 @@ class main extends CI_Controller {
     public function about(){
         $this->load->view('about');
     }
+    public function adminHome(){
+        $this->load->view('adminHome');
+    }
+    public function adminLogin(){
+        $this->load->view('adminLogin');
+    }
+    public function checkLogin(){
+        $data['username'] = $_POST['username'];
+        $data['password'] = $_POST['password'];
+        $this->load->model('Admin_model');
+        $success = $this->Admin_model->checklogin($data);
+        if($success){
+            $this->load->view('adminHome');
+        }
+        else{
+            echo '<script>alert("login Error! Invalid Username or Password");'
+                            . 'window.location.href="'.  base_url().'Main/adminLogin"</script>';
+        }
+    }
 
 }
-
 ?>
